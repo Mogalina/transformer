@@ -89,16 +89,19 @@ bool memory_pool_free(MemoryPool *pool, void *ptr) {
     return false;
   }
 
+  // Check if the pointer is within the pool's memory range.
   uint8_t *byte_ptr = (uint8_t *)ptr;
   if (byte_ptr < pool->memory ||
       byte_ptr >= pool->memory + (pool->capacity * pool->chunk_size)) {
     return false;
   }
 
+  // Check if the pointer is aligned to the chunk size.
   if ((byte_ptr - pool->memory) % pool->chunk_size != 0) {
     return false;
   }
 
+  // Add the pointer back to the free list.
   FreeNode *node = (FreeNode *)ptr;
   node->next = pool->free_chunks;
   pool->free_chunks = node;
