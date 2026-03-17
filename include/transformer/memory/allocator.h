@@ -11,13 +11,12 @@
  * terminates the execution.
  *
  * @param size The number of bytes to allocate.
- *
  * @return A pointer to the allocated memory block.
  *
  * @note The returned memory is not initialized.
  * @note The returned pointer must be freed using safe_free().
  */
-void *safe_malloc(size_t size);
+void *memory_malloc(size_t size);
 
 /**
  * @brief Allocates a block of memory of the specified size.
@@ -28,13 +27,12 @@ void *safe_malloc(size_t size);
  *
  * @param count The number of elements to allocate.
  * @param size The size of each element.
- *
  * @return A pointer to the allocated memory block.
  *
  * @note The returned memory is initialized to zero.
  * @note The returned pointer must be freed using safe_free().
  */
-void *safe_calloc(size_t count, size_t size);
+void *memory_calloc(size_t count, size_t size);
 
 /**
  * @brief Reallocates a block of memory.
@@ -45,13 +43,12 @@ void *safe_calloc(size_t count, size_t size);
  *
  * @param ptr A pointer to the memory block to reallocate.
  * @param size The new size of the memory block.
- *
  * @return A pointer to the reallocated memory block.
  *
  * @note The returned memory is not initialized.
  * @note The returned pointer must be freed using safe_free().
  */
-void *safe_realloc(void *ptr, size_t size);
+void *memory_realloc(void *ptr, size_t size);
 
 /**
  * @brief Frees a block of memory.
@@ -63,6 +60,6 @@ void *safe_realloc(void *ptr, size_t size);
  *
  * @note The pointer must point to a memory block in order to be freed.
  */
-void safe_free(void *ptr);
+void memory_free(void *ptr);
 
 #endif

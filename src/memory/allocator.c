@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void *safe_malloc(size_t size) {
+void *memory_malloc(size_t size) {
   void *ptr = malloc(size);
 
   if (ptr == NULL) {
@@ -13,7 +13,7 @@ void *safe_malloc(size_t size) {
   return ptr;
 }
 
-void *safe_calloc(size_t count, size_t size) {
+void *memory_calloc(size_t count, size_t size) {
   void *ptr = calloc(count, size);
 
   if (ptr == NULL) {
@@ -24,7 +24,7 @@ void *safe_calloc(size_t count, size_t size) {
   return ptr;
 }
 
-void *safe_realloc(void *ptr, size_t size) {
+void *memory_realloc(void *ptr, size_t size) {
   void *new_ptr = realloc(ptr, size);
 
   if (new_ptr == NULL) {
@@ -35,7 +35,7 @@ void *safe_realloc(void *ptr, size_t size) {
   return new_ptr;
 }
 
-void safe_free(void *ptr) {
+void memory_free(void *ptr) {
   if (ptr != NULL) {
     free(ptr);
   }
