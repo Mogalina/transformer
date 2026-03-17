@@ -1,6 +1,7 @@
 #include "transformer/memory/allocator.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void *memory_malloc(size_t size) {
   void *ptr = malloc(size);
@@ -39,4 +40,19 @@ void memory_free(void *ptr) {
   if (ptr != NULL) {
     free(ptr);
   }
+}
+
+void memory_copy(void *dest, const void *src, size_t size) {
+  if (dest == NULL || src == NULL) {
+    return;
+  }
+
+  memcpy(dest, src, size);
+
+  if (dest == NULL) {
+    fprintf(stderr, "Memory allocation failed\n");
+    exit(EXIT_FAILURE);
+  }
+
+  memory_free((void *)src);
 }

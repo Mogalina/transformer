@@ -62,4 +62,20 @@ void *memory_realloc(void *ptr, size_t size);
  */
 void memory_free(void *ptr);
 
+/**
+ * @brief Copies a block of memory.
+ *
+ * This function is a safe wrapper around memcpy() that checks if the copy was
+ * successful. If the copy fails, it prints an error message and terminates the
+ * execution.
+ *
+ * @param dest The destination memory block.
+ * @param src The source memory block.
+ * @param size The number of bytes to copy.
+ *
+ * @note The destination memory block must be large enough to hold the copied
+ * data.
+ */
+void memory_copy(void *dest, const void *src, size_t size);
+
 #endif
