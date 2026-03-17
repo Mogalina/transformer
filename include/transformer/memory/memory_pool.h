@@ -81,6 +81,11 @@ void *memory_pool_alloc(MemoryPool *pool);
 /**
  * @brief Free memory back to the pool.
  *
+ * This function returns a previously allocated memory block directly back to
+ * the pool rather than the Operating System. Since it simply links the pointer
+ * back onto the pool's internal free list, this operation is extraordinarily
+ * fast (constant time).
+ *
  * @param pool The memory pool to free memory to.
  * @param ptr The pointer to free.
  * @return true if the memory was successfully freed, false otherwise.
