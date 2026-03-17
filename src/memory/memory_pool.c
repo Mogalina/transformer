@@ -6,16 +6,16 @@
 FreeNode *_init_free_list(FreeNode *free_list, size_t chunk_size,
                           size_t capacity) {
   // Get the memory address of the first chunk.
-  uint8_t *mem = (uint8_t *)free_list;
+  uint8_t *byte_ptr = (uint8_t *)free_list;
 
   // Initialize the free list by linking all chunks together.
   for (size_t i = 0; i < capacity; i++) {
     // Get the current node.
-    FreeNode *node = (FreeNode *)(mem + i * chunk_size);
+    FreeNode *node = (FreeNode *)(byte_ptr + i * chunk_size);
 
     // If the node is not the last node, link it to the next node.
     if (i < capacity - 1) {
-      node->next = (FreeNode *)(mem + (i + 1) * chunk_size);
+      node->next = (FreeNode *)(byte_ptr + (i + 1) * chunk_size);
     } else {
       // Set the last node's next pointer to NULL.
       node->next = NULL;
