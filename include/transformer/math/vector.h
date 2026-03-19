@@ -29,6 +29,8 @@ void vector_add(float *out, const float *left, const float *right, size_t size);
  * @param left The left vector.
  * @param right The right vector.
  * @param size The size of the vectors.
+ *
+ * @note The left vector is modified in place.
  */
 void vector_add_inplace(float *left, const float *right, size_t size);
 
@@ -58,6 +60,8 @@ void vector_mul(float *out, const float *left, const float *right, size_t size);
  * @param left The left vector.
  * @param right The right vector.
  * @param size The size of the vectors.
+ *
+ * @note The left vector is modified in place.
  */
 void vector_mul_inplace(float *left, const float *right, size_t size);
 
@@ -89,7 +93,7 @@ void vector_copy(float *dest, const float *src, size_t size);
 void vector_fill(float *data, float value, size_t size);
 
 /**
- * @brief Computes the sum of a vector.
+ * @brief Computes the sum of a vector elements.
  *
  * @param data The vector to sum.
  * @param size The size of the vector.
