@@ -1,4 +1,5 @@
 #include "transformer/math/normalize.h"
+#include <math.h>
 #include <stdio.h>
 
 void normalize_layer(float *data, size_t size, float epsilon) {
