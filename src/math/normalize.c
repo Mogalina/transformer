@@ -21,7 +21,7 @@ void normalize_layer(float *data, size_t size, float epsilon) {
   variance /= size;
 
   for (size_t i = 0; i < size; i++) {
-    data[i] = (data[i] - mean) / sqrt(variance + epsilon);
+    data[i] = (data[i] - mean) / sqrtf(variance + epsilon);
   }
 }
 
@@ -45,7 +45,7 @@ void normalize_layer_affine(float *data, const float *gamma, const float *beta,
   variance /= size;
 
   for (size_t i = 0; i < size; i++) {
-    data[i] = (data[i] - mean) / sqrt(variance + epsilon);
+    data[i] = (data[i] - mean) / sqrtf(variance + epsilon);
     data[i] = data[i] * gamma[i] + beta[i];
   }
 }
