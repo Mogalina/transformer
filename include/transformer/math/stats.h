@@ -14,7 +14,7 @@
  *
  * @return The mean of the vector.
  */
-float mean(const float *data, size_t size);
+float stats_mean(const float *data, size_t size);
 
 /**
  * @brief Computes the variance of a vector.
@@ -27,7 +27,7 @@ float mean(const float *data, size_t size);
  *
  * @return The variance of the vector.
  */
-float variance(const float *data, size_t size);
+float stats_variance(const float *data, size_t size);
 
 /**
  * @brief Computes the standard deviation of a vector.
@@ -41,7 +41,7 @@ float variance(const float *data, size_t size);
  *
  * @return The standard deviation of the vector.
  */
-float stddev(const float *data, size_t size);
+float stats_stddev(const float *data, size_t size);
 
 /**
  * @brief Computes the maximum value of a vector.
@@ -51,7 +51,7 @@ float stddev(const float *data, size_t size);
  *
  * @return The maximum value of the vector.
  */
-float max_value(const float *data, size_t size);
+float stats_max_value(const float *data, size_t size);
 
 /**
  * @brief Computes the minimum value of a vector.
@@ -61,6 +61,6 @@ float max_value(const float *data, size_t size);
  *
  * @return The minimum value of the vector.
  */
-float min_value(const float *data, size_t size);
+float stats_min_value(const float *data, size_t size);
 
 #endif

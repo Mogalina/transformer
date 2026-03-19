@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 
-float mean(const float *data, size_t size) {
+float stats_mean(const float *data, size_t size) {
   if (data == NULL) {
     fprintf(stderr, "Vector pointer is null\n");
     return 0;
@@ -16,13 +16,13 @@ float mean(const float *data, size_t size) {
   return sum / size;
 }
 
-float variance(const float *data, size_t size) {
+float stats_variance(const float *data, size_t size) {
   if (data == NULL) {
     fprintf(stderr, "Vector pointer is null\n");
     return 0;
   }
 
-  float mean = mean(data, size);
+  float mean = stats_mean(data, size);
   float sum = 0;
   for (size_t i = 0; i < size; i++) {
     sum += (data[i] - mean) * (data[i] - mean);
@@ -31,16 +31,16 @@ float variance(const float *data, size_t size) {
   return sum / size;
 }
 
-float stddev(const float *data, size_t size) {
+float stats_stddev(const float *data, size_t size) {
   if (data == NULL) {
     fprintf(stderr, "Vector pointer is null\n");
     return 0;
   }
 
-  return sqrt(variance(data, size));
+  return sqrt(stats_variance(data, size));
 }
 
-float max_value(const float *data, size_t size) {
+float stats_max_value(const float *data, size_t size) {
   if (data == NULL) {
     fprintf(stderr, "Vector pointer is null\n");
     return 0;
@@ -56,7 +56,7 @@ float max_value(const float *data, size_t size) {
   return max;
 }
 
-float min_value(const float *data, size_t size) {
+float stats_min_value(const float *data, size_t size) {
   if (data == NULL) {
     fprintf(stderr, "Vector pointer is null\n");
     return 0;
