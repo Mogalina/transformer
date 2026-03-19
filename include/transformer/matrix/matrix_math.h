@@ -15,7 +15,8 @@
 void matrix_relu(Matrix *matrix);
 
 /**
- * Applies the Gated Linear Unit (GELU) activation function to the input matrix.
+ * Applies the Gaussian Error Linear Unit (GELU) activation function to the
+ * input matrix.
  *
  * GELU is used as an activation function in neural networks to introduce
  * non-linearity.
